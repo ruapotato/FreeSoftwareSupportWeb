@@ -81,6 +81,14 @@ img {
   font-weight: 700;
   color: var(--color-primary-darker);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-logo img {
+  height: 2.2rem;
+  width: auto;
 }
 
 .site-logo:hover {
