@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Request Submitted | freesoftware.support</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="site-logo"><img src="logo.png" alt="freesoftware.support logo">freesoftware.support</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.site-nav').classList.toggle('open')">&#9776;</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="call.html">Get Help</a>
+      <a href="connect.html">Get Connected</a>
+      <a href="websites.html">Free Websites</a>
+      <a href="about.html">About</a>
+      <a href="support.html">Support Us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Request Submitted!</h1>
+    <p>We're working on it. Here's what you sent us.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card" id="submission-details">
+      <p style="color: var(--color-text-light);">Loading your submission details...</p>
+    </div>
+
+    <div class="rustdesk-box mt-2">
+      <h3>What Happens Next</h3>
+      <div class="steps mt-1">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <p>We'll review your submission and start building your site.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <p>We'll email you when your site is live at <strong>yourname.freesoft.page</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <p>Need to make changes later? Just email <a href="mailto:hello@freesoftware.support">hello@freesoftware.support</a> or call <a href="tel:+15419194096">(541) 919-4096</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div>&copy; 2026 freesoftware.support</div>
+      <div class="footer-links">
+        <a href="https://www.youtube.com/@davidhamner" target="_blank" rel="noopener">YouTube</a>
+        <a href="call.html">Get Help</a>
+        <a href="about.html">About</a>
+        <a href="support.html">Support Us</a>
+        <a href="https://github.com/ruapotato/FreeSoftwareSupportWeb" target="_blank" rel="noopener">Website Source</a>
+        <a href="https://github.com/ruapotato/callen" target="_blank" rel="noopener">Callen Source</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var fields = [
+    ['business_name', 'Business Name'],
+    ['subdomain', 'Subdomain'],
+    ['contact_name', 'Contact Name'],
+    ['contact_email', 'Email'],
+    ['contact_phone', 'Phone'],
+    ['description', 'Description'],
+    ['address', 'Address'],
+    ['hours', 'Hours'],
+    ['other_details', 'Other Details']
+  ];
+  var container = document.getElementById('submission-details');
+  var html = '';
+  var hasData = false;
+  for (var i = 0; i < fields.length; i++) {
+    var val = params.get(fields[i][0]);
+    if (val) {
+      hasData = true;
+      if (fields[i][0] === 'subdomain') {
+        val = val + '.freesoft.page';
+      }
+      html += '<p class="mt-1"><strong>' + fields[i][1] + ':</strong> ' + val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>';
+    }
+  }
+  if (hasData) {
+    container.innerHTML = '<h3>Your Submission</h3>' + html;
+  } else {
+    container.innerHTML = '<h3>Your Submission</h3><p class="mt-1">Your website request has been received. We\'ll email you when it\'s live.</p>';
+  }
+})();
+</script>
+
+</body>
+</html>

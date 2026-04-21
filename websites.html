@@ -72,7 +72,7 @@
     <h2>Request a Website</h2>
     <p>Fill this out and we'll get your site set up. You can also email all of this to <a href="mailto:hello@freesoftware.support?subject=[SITE-REQUEST] New website request">hello@freesoftware.support</a> if you prefer.</p>
 
-    <form class="consent-form" action="https://formspree.io/f/xpqogkyl" method="POST">
+    <form class="consent-form" id="site-request-form" action="https://formspree.io/f/xpqogkyl" method="POST">
       <input type="hidden" name="_subject" value="[SITE-REQUEST] New website request">
 
       <label for="business-name">Business Name</label>
@@ -114,6 +114,24 @@
     </form>
   </div>
 </section>
+
+<script>
+document.getElementById('site-request-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  var params = new URLSearchParams(data);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function() {
+    window.location.href = 'website-submitted.html?' + params.toString();
+  }).catch(function() {
+    window.location.href = 'website-submitted.html?' + params.toString();
+  });
+});
+</script>
 
 <footer class="site-footer">
   <div class="container">
