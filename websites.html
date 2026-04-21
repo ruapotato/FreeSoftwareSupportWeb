@@ -79,7 +79,14 @@
       <input type="text" id="business-name" name="business_name" required placeholder="e.g. Tim's Tools & Hardware">
 
       <label for="subdomain">Preferred Subdomain</label>
-      <input type="text" id="subdomain" name="subdomain" required placeholder="e.g. tims-tools (becomes tims-tools.freesoft.page)">
+      <p style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Your website will live at <strong>yourname.freesoft.page</strong>. A subdomain is just the part before the dot. Pick something short and easy to remember, like your business name. For example:</p>
+      <ul style="font-size: 0.9rem; color: var(--color-text-light); margin: 0 0 0.75rem 1.5rem;">
+        <li>Tim's Tools &rarr; <strong>tims-tools</strong>.freesoft.page</li>
+        <li>Roseburg Pet Grooming &rarr; <strong>roseburg-pets</strong>.freesoft.page</li>
+        <li>Jane's Bakery &rarr; <strong>janes-bakery</strong>.freesoft.page</li>
+      </ul>
+      <input type="text" id="subdomain" name="subdomain" required placeholder="e.g. tims-tools" pattern="[a-z0-9]+(-[a-z0-9]+)*" oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9-]/g, '');">
+      <p id="subdomain-preview" style="font-size: 0.95rem; margin-top: 0.35rem; font-weight: 600; color: var(--color-primary-dark);"></p>
       <p style="font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.25rem;">Lowercase letters, numbers, and hyphens only.</p>
 
       <label for="contact-name">Your Name</label>
@@ -116,6 +123,15 @@
 </section>
 
 <script>
+document.getElementById('subdomain').addEventListener('input', function() {
+  var preview = document.getElementById('subdomain-preview');
+  if (this.value) {
+    preview.textContent = 'Your site: ' + this.value + '.freesoft.page';
+  } else {
+    preview.textContent = '';
+  }
+});
+
 document.getElementById('site-request-form').addEventListener('submit', function(e) {
   e.preventDefault();
   var form = e.target;
