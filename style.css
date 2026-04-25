@@ -459,6 +459,58 @@ img {
   color: #fff;
 }
 
+/* === Pricing Table === */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.pricing-table th {
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.pricing-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.pricing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table tr:nth-child(even) {
+  background: var(--color-bg-section);
+}
+
+.pricing-table .tier-name {
+  font-weight: 600;
+  color: var(--color-primary-darker);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .pricing-table {
+    font-size: 0.85rem;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .pricing-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* === Utility === */
 .text-center {
   text-align: center;
