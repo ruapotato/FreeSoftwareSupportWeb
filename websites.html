@@ -86,15 +86,15 @@
       <input type="text" id="business-name" name="business_name" required placeholder="e.g. Tim's Tools & Hardware">
 
       <label for="subdomain">Preferred Subdomain</label>
-      <p style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Your website will live at <strong>yourname.freesoft.page</strong>. A subdomain is just the part before the dot. Pick something short and easy to remember, like your business name. For example:</p>
-      <ul style="font-size: 0.9rem; color: var(--color-text-light); margin: 0 0 0.75rem 1.5rem;">
+      <p class="form-hint" style="margin-bottom: 0.5rem;">Your website will live at <strong>yourname.freesoft.page</strong>. A subdomain is just the part before the dot. Pick something short and easy to remember, like your business name. For example:</p>
+      <ul class="form-hint" style="margin: 0 0 0.75rem 1.5rem;">
         <li>Tim's Tools &rarr; <strong>tims-tools</strong>.freesoft.page</li>
         <li>Roseburg Pet Grooming &rarr; <strong>roseburg-pets</strong>.freesoft.page</li>
         <li>Jane's Bakery &rarr; <strong>janes-bakery</strong>.freesoft.page</li>
       </ul>
       <input type="text" id="subdomain" name="subdomain" required placeholder="e.g. tims-tools" pattern="[a-z0-9]+(-[a-z0-9]+)*" oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9-]/g, '');">
-      <p id="subdomain-preview" style="font-size: 0.95rem; margin-top: 0.35rem; font-weight: 600; color: var(--color-primary-dark);"></p>
-      <p style="font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.25rem;">Lowercase letters, numbers, and hyphens only.</p>
+      <p id="subdomain-preview" class="subdomain-preview"></p>
+      <p class="form-hint">Lowercase letters, numbers, and hyphens only.</p>
 
       <label for="contact-name">Your Name</label>
       <input type="text" id="contact-name" name="contact_name" required placeholder="e.g. Tim Johnson">
@@ -116,11 +116,11 @@
 
       <label for="other-details">Anything Else</label>
       <textarea id="other-details" name="other_details" placeholder="Social media links, special requests, or anything else you want on the site."></textarea>
-      <p style="font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.25rem;">Want to add photos or a logo? Once we get your base website created, you can email images to hello@freesoftware.support and we'll add them for you.</p>
+      <p class="form-hint">Want to add photos or a logo? Once we get your base website created, you can email images to hello@freesoftware.support and we'll add them for you.</p>
 
       <div class="checkbox-group">
         <input type="checkbox" id="site-consent" name="consent" required>
-        <label for="site-consent" style="margin: 0; font-weight: normal;">
+        <label for="site-consent">
           <strong>I have read and agree to the <a href="terms.html" target="_blank">Terms of Service</a>.</strong> I understand that this is a free, best-effort service, that emails may be processed by AI, and that the process of building my site may be featured on YouTube or other platforms.
         </label>
       </div>
